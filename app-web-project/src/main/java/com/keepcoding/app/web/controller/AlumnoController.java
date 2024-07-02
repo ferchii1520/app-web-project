@@ -54,13 +54,13 @@ public class AlumnoController {
         alumnoExistente.setFechaNac(alumno.getFechaNac());
 
         alumnoService.actualizarAlumno(alumnoExistente);
-        return "redirect:/";
+        return "redirect:/alumnos";
     }
 
     @GetMapping("/alumno/delete/{id}")
     public String deleteAlumno(@PathVariable Long id) {
         alumnoService.eliminarAlumno(id);
-        return "redirect:/";
+        return "redirect:/alumnos";
     }
 
 }

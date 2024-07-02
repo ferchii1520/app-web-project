@@ -26,7 +26,12 @@ public class UsuarioController {
     public String login(@ModelAttribute("usuario") Usuario usuario, Model model) {
         Usuario user = usuarioService.obtenerUsuarioPorUsername(usuario.getUsername());
         if (user != null && user.getPassword().equals(usuario.getPassword())) {
-            return "redirect:/alumnos";
+            if (user.getActivo()) {
+                return "redirect:/alumnos";
+            } else {
+                model.addAttribute("error", "Usuario no activo");
+                return "login";
+            }
         } else {
             model.addAttribute("error", "Username or password is incorrect");
             return "login";
@@ -39,13 +44,11 @@ public class UsuarioController {
         return "Register"; // Asegúrate de que este nombre coincida con el archivo de la plantilla
     }
 
-
     @PostMapping("/register")
     public String register(@ModelAttribute("usuario") Usuario usuario) {
         usuario.setActivo(true);
         usuarioService.guardarUsuario(usuario);
         return "redirect:/login";
     }
-
 
 }
