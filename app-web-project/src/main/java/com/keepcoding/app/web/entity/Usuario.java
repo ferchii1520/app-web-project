@@ -19,6 +19,8 @@ public class Usuario implements Serializable{
 	@Column(nullable = false, length = 100)
 	private String nombre;
 	@Column(nullable = false, length = 100)
+	private String apellido;
+	@Column(nullable = false, length = 100)
 	private String email;
 	@Column(nullable = false, length = 100, unique = true)
 	private String username;
@@ -38,6 +40,12 @@ public class Usuario implements Serializable{
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 	public String getEmail() {
 		return email;

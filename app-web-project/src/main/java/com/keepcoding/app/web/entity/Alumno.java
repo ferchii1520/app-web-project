@@ -25,9 +25,9 @@ public class Alumno implements Serializable{
 	private String apellido;
 	@Column(nullable = false, length = 100)
 	private Long telefono;
-	@Column(nullable = false, length = 10)
+	@Column(nullable = false, length = 100)
 	private String email;
-	@Column(nullable = false, length = 8)
+	@Column(nullable = false, length = 10)
 	private String dni;
 	@Temporal(TemporalType.DATE)
 	@Column(name = "Fecha_nac")
