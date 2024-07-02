@@ -16,13 +16,13 @@ public class Usuario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 40)
 	private String nombre;
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 40)
 	private String email;
-	@Column(nullable = false, length = 100, unique = true)
+	@Column(nullable = false, length = 20, unique = true)
 	private String username;
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 50)
 	private String password;
 	@Column(nullable = false)
 	private Boolean activo;
